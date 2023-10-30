@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    private final String HOST = "jdbc:mysql://localhost:3306/prepro2";
-    private final String USERNAME = "root";
-    private final String PASSWORD = "Grind02Iop4";
+    private final static String HOST = "jdbc:mysql://localhost:3306/prepro2";
+    private final static String USERNAME = "root";
+    private final static String PASSWORD = "Grind02Iop4";
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(HOST, USERNAME, PASSWORD);
