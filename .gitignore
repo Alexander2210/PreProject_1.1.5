@@ -1,1 +1,7 @@
-.idea/
+# Default ignored files
+/shelf/
+.idea/*
+*.iml
+target/*
+!/model/target/generated-sources/annotations/*
+/httpRequests/
