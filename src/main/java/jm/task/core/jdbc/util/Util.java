@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    private final static String HOST = "jdbc:mysql://localhost:3306/prepro2?useSSL=false";
+    private final static String HOST = "jdbc:mysql://localhost:3306/prepro2";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "Grind02Iop4";
 
@@ -37,27 +37,23 @@ public class Util {
             try {
                 Configuration configuration = new Configuration();
 
-                // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, HOST);
                 settings.put(Environment.USER, USERNAME);
                 settings.put(Environment.PASS, PASSWORD);
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
-
                 settings.put(Environment.SHOW_SQL, "true");
-
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-                settings.put(Environment.HBM2DDL_AUTO, "");
-
                 configuration.setProperties(settings);
-
                 configuration.addAnnotatedClass(User.class);
 
                 sessionFactory = configuration.buildSessionFactory();
+                System.out.println("SessionFactory OK");
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println("SessionFactory ERROR");
             }
         }
         return sessionFactory;
